@@ -1,0 +1,27 @@
+{
+  "name": "contactbackend",
+  "version": "1.0.0",
+  "description": "The Contact Web Backend",
+  "main": "index.js",
+  "scripts": {
+    "test": "test contact "
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Fierilyheavenlyeagle/contactWebProject.git"
+  },
+  "keywords": [
+    "contact",
+    "backend"
+  ],
+  "author": "Alvaro Cera",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Fierilyheavenlyeagle/contactWebProject/issues"
+  },
+  "homepage": "https://github.com/Fierilyheavenlyeagle/contactWebProject#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^5.2.1"
+  }
+}
