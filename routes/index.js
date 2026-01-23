@@ -1,7 +1,6 @@
 const router = require("express").Router();
+const contacts = require("./contactsRoute");
 
-router.get('/',(req,res) => (res.send('Hello world')));
-
-router.use("/contacts", require("./contactsRoute"));
+router.use("/contactAgenda", contacts);
 
 module.exports = router;

@@ -1,0 +1,164 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Contacts API",
+    "description": "API de contactos",
+    "version": "1.0.0"
+  },
+  "host": "localhost:3000",
+  "basePath": "/",
+  "schemes": [
+    "http"
+  ],
+
+    "securityDefinitions": {
+  "apiKeyAuth": {
+    "type": "apiKey",
+    "name": "apiKey",
+    "in": "header"
+  }
+},
+  "security": [{"apiKeyAuth": []}],
+
+  "paths": {
+    "/contacts": {
+      "get": {
+        "description": "",
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      },
+      "post": {
+        "description": "Create a new contact",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Contact to create",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "firstName": {
+                  "type": "string"
+                },
+                "lastName": {
+                  "type": "string"
+                },
+                "email": {
+                  "type": "string"
+                },
+                "favoriteColor": {
+                  "type": "string"
+                },
+                "birthday": {
+                  "type": "string"
+                }
+              },
+              "required": ["firstName", "lastName", "email"]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Correctly created contact"
+          },
+          "400": {
+            "description": "Invalid input"
+          }
+        },
+        "security": [{"apiKeyAuth": []}]
+      }
+    },
+      "/contacts/{id}": {
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      },
+      "put": {
+        "description": "Update a contact by ID",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "ID of the contact to update"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Contact to update",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "firstName": {
+                  "type": "string"
+                },
+                "lastName": {
+                  "type": "string"
+                },
+                "email": {
+                  "type": "string"
+                },
+                "favoriteColor": {
+                  "type": "string"
+                },
+                "birthday": {
+                  "type": "string"
+                }
+              },
+              "required": ["firstName", "lastName", "email"]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Correctly updated contact"
+          },
+          "400": {
+            "description": "Invalid input"
+          }
+        }
+      },
+      "delete": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "ID of the contact to delete"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Correctly deleted contact"
+          },
+          "400": {
+            "description": "Temple not found"
+          }
+        }
+      }
+    }
+  }
+}
