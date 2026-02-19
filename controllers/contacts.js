@@ -2,7 +2,7 @@ import Contact from "../models/contacts.js";
 import env from "dotenv";
 env.config();
 
-const apiKey = env.API_KEY;
+const apiKey = process.env.API_KEY;
 
 const createContact = async (req, res) => {
   // Validate request
@@ -10,7 +10,7 @@ const createContact = async (req, res) => {
     return res.status(400).send({ message: "Content can not be empty!" });
   }
 
-  const lastContact = await Contact.findOne().sort({id: -1});
+  const lastContact = await Contact.findOne().sort({ id: -1 });
 
   const newId = lastContact ? lastContact.id + 1 : 1;
 
