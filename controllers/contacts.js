@@ -9,7 +9,7 @@ const createContact = async (req, res) => {
     return res.status(400).send({ message: "Content can not be empty!" });
   }
 
-  const lastContact = await Contact.findOne().sort({ id: -1 });
+  const lastContact = await Contact.findOne().sort({id: -1});
 
   const newId = lastContact ? lastContact.id + 1 : 1;
 
